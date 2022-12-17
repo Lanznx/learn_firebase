@@ -12,9 +12,16 @@ jobs:
       environment: production
 
       steps:
+
+      - name: LS
+        run: ls
+
       - name: Checkout
         uses: actions/checkout@v2 
 
+      - name: LS
+        run: pwd && ls
+        
       - name: Build
         run: npm install
 
