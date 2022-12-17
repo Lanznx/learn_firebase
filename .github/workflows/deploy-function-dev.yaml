@@ -7,7 +7,7 @@ on:
 
 jobs:
   prod-deploy:
-      name: Deploy Functions in Production Environment
+      name: Deploy Functions in Develop Environment
       runs-on: ubuntu-latest
       environment: dev
 
