@@ -16,6 +16,16 @@ exports.fire = functions.https.onRequest((request, response) => {
   response.send("On Water !!!");
 });
 
+exports.api = functions.https.onRequest((request, response) => {
+  functions.logger.info("Hello logs!", { structuredData: true });
+  response.send("This is production !!!");
+});
+
+exports.dev = functions.https.onRequest((request, response) => {
+  functions.logger.info("Hello logs!", { structuredData: true });
+  response.send("I'm developing !!!");
+});
+
 exports.addMessage = functions.https.onRequest(async (req, res) => {
   // Grab the text parameter.
   const original = req.query.text;
