@@ -1,19 +1,24 @@
-name: CD
+name: CD-production
 
 on:
   push:
     branches:
-    - master
+    - main
 
 jobs:
-  functions-deploy:
-      name: Deploy Functions
+  prod-deploy:
+      name: Deploy Functions in Production Environment
       runs-on: ubuntu-latest
+      environment: production
 
       steps:
-      - uses: actions/checkout@master
-      - uses: YJack0000/deploy-firebase-functions@1.2.0
-        env:
-          FIREBASE_TOKEN: ${{ secrets.FIREBASE_TOKEN }}
-          TARGET: default
-          DEPLOY_ONLY: functions
+      - name: Checkout
+        uses: actions/checkout@v2 
+
+      - name: Build
+        run: npm install
+
+      - name: Firebase Deploy
+        run: |
+          sudo npm install -g firebase-tools
+          firebase deploy --token ${{ secrets.FIREBASE_TOKEN }}
