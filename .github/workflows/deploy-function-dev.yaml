@@ -23,7 +23,7 @@ jobs:
         run: cd functions && npm install
 
       - name: install sudo 
-        run: apt get update && apt get install sudo
+        run: apt update && apt install sudo
 
       - name: Firebase Deploy
         run: |
