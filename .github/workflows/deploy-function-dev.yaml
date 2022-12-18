@@ -1,4 +1,4 @@
-name: CD-production
+name: CD-dev
 
 on:
   push:
@@ -9,11 +9,18 @@ jobs:
   prod-deploy:
       name: Deploy Functions in Develop Environment
       runs-on: ubuntu-latest
+      container: node:16.14.2
       environment: dev
 
       steps:
       - name: Checkout
         uses: actions/checkout@v2 
+
+      - name: check node version
+        run: node -v
+
+      - name: install sudo
+        run: apt-get update && apt-get install sudo
         
       - name: Build
         run: cd functions && npm install
