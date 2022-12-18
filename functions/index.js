@@ -13,7 +13,7 @@ exports.helloWorld = functions.https.onRequest((request, response) => {
 
 exports.fire = functions.https.onRequest((request, response) => {
   functions.logger.info("Hello logs!", { structuredData: true });
-  response.send("On Water !!!");
+  response.send("On Fire !!!");
 });
 
 exports.api = functions.https.onRequest((request, response) => {
