@@ -9,7 +9,6 @@ jobs:
   prod-deploy:
       name: Deploy Functions in Develop Environment
       runs-on: ubuntu-latest
-      container: node:16
       environment: dev
 
       steps:
