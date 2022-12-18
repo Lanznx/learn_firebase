@@ -9,7 +9,7 @@ jobs:
   prod-deploy:
       name: Deploy Functions in Develop Environment
       runs-on: ubuntu-latest
-      container: node:16-bullseye-slim
+      container: node:16-bullseye
       environment: dev
 
       steps:
